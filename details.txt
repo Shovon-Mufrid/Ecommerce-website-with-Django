@@ -1,2 +1,15 @@
 1. setup django,
 2. setup enviroment
+3. setup app>pillow, crispy, 
+4. setup other folders>media,static,template
+5. setup settings
+6. configure urls
+7.Login_APP>>
+8. model.py>>> from django.contrib.auth.models import BaseUserManager,AbstractBaseUser, PermissionsMixin
+from django.utils.translation import ugettext_lazy
+10. https://docs.djangoproject.com/en/4.1/topics/auth/customizing/
+
+11. from django.db.models.signals import post_save
+from django.dispatch import receiver
+12. settings.py change models
+run only makemigrations
