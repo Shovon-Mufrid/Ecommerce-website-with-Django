@@ -16,6 +16,7 @@ run only makemigrations
 13. from django.contrib.auth.forms import UserCreationForm >>> it needs to modify cz Model is changed
 14. user signup, login, logout 
 15. profile create and  alert message create
+16. shop
 
 
 

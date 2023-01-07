@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block body_block %}
+    
+
+{% for product in object_list %}
+
+{{product.main_image}}
+<br>
+{{product.name}}
+<br>
+{{product.category}}
+<br>
+{{product.preview_text}}
+<br>
+{{product.detail_text}}
+<br>
+${{product.price}}
+<br>
+${{product.old_price}}
+<br>
+{{product.created_date}}
+
+
+{% endfor %}
+    
+
+
+
+{% endblock body_block %}
+    
