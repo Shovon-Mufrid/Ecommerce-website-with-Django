@@ -62,7 +62,7 @@ class Profile(models.Model):
 
     # alternate to views.py
     def __str__(self):
-        return self.username
+        return self.username + "'s Profile"
 
     # check all model is filled in the profile
     def is_fully_filled(self):
