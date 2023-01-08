@@ -17,11 +17,146 @@ run only makemigrations
 14. user signup, login, logout 
 15. profile create and  alert message create
 16. shop
+17.home.html>>> |floatformat:2 >> 2 of decimal float point
+18. include>>> add one html file to another html file // extend>>> inherit one html file to another
+19......................NAV......................................
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'App_Shop:home' %}">Mobile Store</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">         
+                {% if request.user.is_authenticated   %}                                 
+                <li class="nav-item">
+                    <i class="fa fa-shopping-cart-dark"></i>Cart
+                </li> 
+                <li class="nav-item dropdown">
+                    <a href="" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-tie"></i> {{request.user.profile.username}} </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a href="{% url 'App_Login:profile' %}" class="dropdown-item">Profile</a>
+                        <a href="#" class="dropdown-item">Orders</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="{% url 'App_Login:logout' %}" class="dropdown-item">Logout</a>
+
+
+                    </div>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{% url 'App_Login:login' %}" class="btn btn-primary">Login</a>
+                </li>
+                {% endif %}
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+20...............................Base................................
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-A-Compatible", content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <title>{% block title_block %} E-Commerce {% endblock title_block %}
+    </title>
+    <style>
+      .card{
+        height: 350px;
+      }
+      .card-product:after{
+        content: "";
+        display: table;
+        clear: both;
+        visibility: hidden;
+      }
+      .card-product .price-new, .card-product .price{
+        margin-right: 5px;
+      }
+      .card-product .price-old{
+        color: #999;
+      }
+      .card-product .img-wrap{
+        border-radius: 3px 3px 0 0;
+        overflow: hidden;
+        position: relative;
+        height: 220px;
+        text-align: center;
+      } 
+      .card-product .img-wrap img{
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: fill;
+      }
+      .card-product .info-wrap{
+        overflow: hidden;
+        padding: 15px;
+        border-top: 2px solid #eee;
+      }
+      .card-product .action-wrap{
+        padding-top: 4px;
+        margin-top: 4px;
+      }
+      .card-product .bottom-wrap{
+        padding: 15px;
+        border-top: 5px solid #eee;
+      }
+      .card-product .title{
+        margin-top: 0px ;
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'navbar.html' %}
+  <div class="container">
+    <div class="messages container mt-2">
+      {% if messages %}        
+        {% for message in messages %}
+          <div {% if message.tags %} 
+          class="alert alert-{{message.tags}} {% endif %}"
+          role="alert">
+            {{message}}
+            <button type="submit" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}     
+      {% endif %}
+
+    </div>
+    
+    {% block body_block %}
+      
+
+
+    {% endblock body_block %}
 
 
 
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+      
+
+  </div>
 
 
+     </body>
+</html>
 
 
 

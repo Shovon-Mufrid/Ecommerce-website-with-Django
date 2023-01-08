@@ -13,9 +13,55 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <title>{% block title_block %} E-Commerce {% endblock title_block %}
     </title>
+    <style>
+      .card{
+        height: 350px;
+      }
+      .card-product:after{
+        content: "";
+        display: table;
+        clear: both;
+        visibility: hidden;
+      }
+      .card-product .price-new, .card-product .price{
+        margin-right: 5px;
+      }
+      .card-product .price-old{
+        color: #999;
+      }
+      .card-product .img-wrap{
+        border-radius: 3px 3px 0 0;
+        overflow: hidden;
+        position: relative;
+        height: 220px;
+        text-align: center;
+      } 
+      .card-product .img-wrap img{
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: fill;
+      }
+      .card-product .info-wrap{
+        overflow: hidden;
+        padding: 15px;
+        border-top: 2px solid #eee;
+      }
+      .card-product .action-wrap{
+        padding-top: 4px;
+        margin-top: 4px;
+      }
+      .card-product .bottom-wrap{
+        padding: 15px;
+        border-top: 5px solid #eee;
+      }
+      .card-product .title{
+        margin-top: 0px ;
+      }
+    </style>
   </head>
   <body>
-  <div class="container" style="padding: 10px 0;">
+    {% include 'navbar.html' %}
+  <div class="container">
     <div class="messages container mt-2">
       {% if messages %}        
         {% for message in messages %}
