@@ -158,8 +158,9 @@ run only makemigrations
      </body>
 </html>
 
-
-
+SSLCOMMERZE:  https://developer.sslcommerz.com/
+pip install sslcommerz-python 
+pip install requests
 
 
 
