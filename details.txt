@@ -158,10 +158,13 @@ run only makemigrations
      </body>
 </html>
 
-SSLCOMMERZE:  https://developer.sslcommerz.com/
+SSLCOMMERZE:  https://developer.sslcommerz.com/ 
 pip install sslcommerz-python 
-pip install requests
+pip install requests 
 
+
+Store ID: ecoco63c3c9f981ff6
+Store Password (API/Secret Key): ecoco63c3c9f981ff6@ssl
 
 
 

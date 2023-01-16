@@ -1,9 +1,15 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, redirect
 from App_Order.models import Order
 from App_Payment.forms import BillingAddress
 from App_Payment.forms import BillingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+# for sslcommerz payment
+import requests
+# from sslcommerz_python.payment import SSLCSession
+from decimal import Decimal
+import socket
+
 # Create your views here.
 
 @login_required
@@ -24,8 +30,17 @@ def checkout(request):
 
 
 
+@login_required
+def payment(request):
+    saved_address = BillingAddress.objects.get_or_create(user=request.user)
+    if not saved_address[0].is_fully_filled():
+        messages.info(request, f"Please complete shipping address!")
+        return redirect("App_Payment:checkout")
 
+    if not request.user.profile.is_fully_filled():
+        messages.info(request, f"Complete Profile Details")
+        return redirect("App_Login:profile")
 
-
+    return render(request, "App_Payment/payment.html", context={})
 
 
