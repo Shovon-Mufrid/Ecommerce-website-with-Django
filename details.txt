@@ -166,6 +166,8 @@ pip install requests
 Store ID: ecoco63c3c9f981ff6
 Store Password (API/Secret Key): ecoco63c3c9f981ff6@ssl
 
+Payment method is not added
+Purchased in App_order.models Cart & Order>purchased=True, ordered=True
 
 
 
