@@ -10,7 +10,8 @@ class Cart(models.Model):
     purchased = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-
+    # change_log
+    # created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     def __str__(self):
         return f'{self.quantity} X {self.item}'
 

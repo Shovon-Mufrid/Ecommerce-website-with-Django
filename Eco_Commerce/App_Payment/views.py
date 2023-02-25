@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # for sslcommerz payment
 import requests
-# from sslcommerz_python.payment import SSLCSession
+from sslcommerz_lib import SSLCOMMERZ
 from decimal import Decimal
 import socket
 from django.views.decorators.csrf import csrf_exempt
@@ -42,6 +42,9 @@ def payment(request):
     if not request.user.profile.is_fully_filled():
         messages.info(request, f"Complete Profile Details")
         return redirect("App_Login:profile")
+
+
+        # sslcz = SSLCOMMERZ({ 'store_id': 'ecoco63c3c9f981ff6', 'store_pass': 'ecoco63c3c9f981ff6@ssl', 'issandbox': True })
 
     ### SSLCOMMERZ GETWAY ###   
     # store_id = "ecoco63c3c9f981ff6"
