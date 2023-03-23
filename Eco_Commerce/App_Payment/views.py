@@ -6,8 +6,8 @@ from App_Payment.forms import BillingForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # for sslcommerz payment
-import requests
-from sslcommerz_lib import SSLCOMMERZ
+# import requests
+# from sslcommerz_lib import SSLCOMMERZ
 from decimal import Decimal
 import socket
 from django.views.decorators.csrf import csrf_exempt

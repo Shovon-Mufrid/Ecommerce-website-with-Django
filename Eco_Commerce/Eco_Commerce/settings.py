@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms', 'rest_framework',
+    'crispy_forms', 'crispy_bootstrap4',
     'App_Login', 'App_Shop', 'App_Order', 'App_Payment', 'App_UserLog',
 ]
 
@@ -80,7 +80,7 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecommerce',
+        'NAME': 'eco_commerce',
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
